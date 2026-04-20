@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <h1>🧠Welcome to the Puzzle Solver Game 🧩</h1>
+        <p>Get ready to test your puzzle-solving skills and have fun!🥳</p>
+        <button id="enter-game-btn" class="btn primary-btn">Enter Game</button>
+    </div>
+
+    <!-- Main Game Container -->
+    <div class="game-container">
+        <h1 class="title">🌟 Image Puzzle Game 🌟</h1>
+
+        <!-- Player Name Input -->
+        <div id="player-info">
+            <label for="player-name" class="subtitle">Enter Your Name:</label>
+            <input type="text" id="player-name" placeholder="Your name" class="input-field" />
+            <button id="start-btn" class="btn primary-btn">Start Game</button>
+        </div>
+
+        <!-- Difficulty Section -->
+        <div id="difficulty-section" class="hidden">
+            <h2 class="subtitle">Select Difficulty</h2>
+            <div class="difficulty-buttons">
+                <button class="difficulty-btn btn easy-btn" data-level="easy">Easy</button>
+                <button class="difficulty-btn btn medium-btn" data-level="medium">Medium</button>
+                <button class="difficulty-btn btn hard-btn" data-level="hard">Hard</button>
+            </div>
+        </div>
+
+        <!-- Game Area -->
+        <div id="game-area" class="hidden">
+            <img id="target-image" src="" alt="Target Image" class="target-image">
+            <p id="game-instructions" class="instructions">Time spent: 0s</p>
+            <p id="moves-remaining" class="moves">Moves remaining: 0</p>
+            <div id="puzzle-container" class="puzzle-container"></div>
+
+            <!-- Submit Button -->
+            <button id="submit-btn" class="btn secondary-btn">Submit</button>
+            <p id="result-message" class="result-message hidden"></p>
+        </div>
+
+        <!-- Scoreboard -->
+        <div id="scoreboard" class="hidden">
+            <h2 class="subtitle">Scoreboard</h2>
+            <ul id="scoreboard-list"></ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

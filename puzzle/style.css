@@ -1,0 +1,275 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right,#6a11cb,pink);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Welcome Screen */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #6a11cb, white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    z-index: 10;
+}
+
+.welcome-image {
+    width: 500px;
+    height: auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#welcome-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#welcome-screen p {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+#welcome-screen .btn {
+    margin-top: 30px;
+}
+
+
+.game-container {
+    background: #ffffff11;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 300px;
+}
+
+.btn {
+    padding: 12px 20px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn.primary-btn {
+    background: orange;
+    color: white;
+}
+
+.btn.primary-btn:hover {
+    background: orange;
+    transform: scale(1.1);
+}
+
+.btn.secondary-btn {
+    background: #28a745;
+    color: white;
+}
+
+.btn.secondary-btn:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
+
+.difficulty-btn {
+    margin: 10px;
+}
+
+.easy-btn {
+    background: #007bff;
+}
+
+.medium-btn {
+    background: #ffc107;
+}
+
+.hard-btn {
+    background: #dc3545;
+}
+
+.easy-btn:hover {
+    background: green;
+}
+
+.medium-btn:hover {
+    background: pink;
+}
+
+.hard-btn:hover {
+    background: lightblue;
+}
+
+/* Hidden elements (e.g., before game starts or after it's over) */
+.hidden {
+    display: none;
+}
+
+/* Game Area Styling */
+#game-area {
+    position: relative;
+}
+
+#target-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+#puzzle-container {
+    display: grid;
+    margin: 20px auto;
+    gap: 2px;
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
+
+.puzzle-piece {
+    border: 1px solid #ddd;
+    background-size: cover;
+    cursor: grab;
+    transition: all 0.2s ease-in-out;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.05);
+}
+
+.instructions {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.moves {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+#submit-btn {
+    margin-top: 20px; /* Space between the puzzle grid and the button */
+    position: static; /* Remove absolute positioning */
+    display: block; /* Ensure it's treated as a block element */
+    margin-left: auto;
+    margin-right: auto; /* Center the button horizontally */
+}
+/* Success Animation: Glowing and Scaling Effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #28a745, 0 0 10px #28a745;
+    }
+    50% {
+        box-shadow: 0 0 20px #28a745, 0 0 40px #28a745;
+    }
+    100% {
+        box-shadow: 0 0 5px #28a745, 0 0 10px #28a745;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply to Result Message */
+.result-message.success {
+    animation: glow 2s infinite, scale 1s infinite;
+}
+
+/* Confetti Effect Container */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+
+/* Result Message Styling */
+.result-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.result-message.success {
+    color: #28a745;
+}
+
+.result-message.failure {
+    color: #dc3545;
+}
+
+/* Scoreboard Styling */
+#scoreboard {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+#scoreboard-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+#scoreboard-list li {
+    padding: 5px 0;
+    font-size: 1rem;
+    color: #ffd700;
+}
